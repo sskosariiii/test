@@ -1,0 +1,426 @@
+@import url(https://fonts.googleapis.com/css?family=Merriweather:400,300,700);
+@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
+body {
+    background: #fbfbfb;
+    font-family: 'Merriweather', serif;
+    font-size: 16px;
+    color: #777;
+}
+
+h1, h4 {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.seperator {
+    margin-bottom: 30px;
+    width: 35px;
+    height: 3px;
+    background: #777;
+    border: none;
+}
+
+.title {
+    text-align: center;
+}
+.title .row {
+    padding: 50px 0 0;
+}
+.title h1 {
+    text-transform: uppercase;
+}
+.title .seperator {
+    margin: 0 auto 10px;
+}
+
+.item {
+    position: relative;
+    margin-bottom: 30px;
+    min-height: 1px;
+    float: left;
+    -webkit-backface-visibility: hidden;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.item .item-in {
+    background: #fff;
+    padding: 40px;
+    position: relative;
+}
+.item .item-in:hover:before {
+    width: 100%;
+}
+.item .item-in::before {
+    content: "";
+    position: absolute;
+    bottom: 0px;
+    height: 2px;
+    width: 0%;
+    background: #333333;
+    right: 0px;
+    transition: width 0.4s;
+}
+
+.item h4 {
+    font-size: 18px;
+    margin-top: 25px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+.item p {
+    font-size: 12px;
+}
+.item a {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    text-transform: uppercase;
+    color: #666666;
+    margin-top: 10px;
+}
+.item a i {
+    opacity: 0;
+    padding-left: 0px;
+    transition: 0.4s;
+    font-size: 24px;
+    display: inline-block;
+    top: 5px;
+    position: relative;
+}
+.item a:hover {
+    text-decoration: none;
+}
+.item a:hover i {
+    padding-left: 10px;
+    opacity: 1;
+    font-weight: 300;
+}
+
+.item .icon {
+    position: absolute;
+    top: 27px;
+    left: -16px;
+    cursor: pointer;
+}
+.item .icon a {
+    font-family: 'Merriweather', serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: #999;
+    text-transform: none;
+}
+.item .icon svg {
+    width: 32px;
+    height: 32px;
+    float: left;
+}
+.item .icon .icon-topic {
+    opacity: 0;
+    padding-left: 0px;
+    transition: 0.4s;
+    display: inline-block;
+    top: 0px;
+    position: relative;
+}
+.item .icon:hover .icon-topic {
+    opacity: 1;
+    padding-left: 10px;
+}
+
+@media only screen and (max-width: 768px) {
+    .item .icon {
+        position: relative;
+        top: 0;
+        left: 0;
+    }
+}
+.cutText{
+    white-space: nowrap;
+    hight:100px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+}
+
+/* comment post */
+
+h2 {
+    color: #777;
+    font: 900 1.75em 'Roboto', 'Open Sans', 'Helvetica Neue', 'Arial', 'sans-serif';
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+h2::after {
+    content: "";
+    display: block;
+    width: 2em;
+    height: 0.25em;
+    background: #777;
+    margin-top: 0.5em;
+}
+
+.comments {
+    position: relative;
+    width: 100%;
+    background: #fff;
+    margin: auto;
+    padding: 27px;
+    box-sizing: border-box;
+    top: 5em;
+}
+
+.comments::after {
+    content: " ";
+    display: table;
+    clear: both;
+}
+
+.comments__form-info,
+.comments__form-text {
+    width: 100%;
+    margin: 0;
+}
+
+/*.comments__form-info { float: left; }*/
+.comments__form-text { float: right; }
+
+.comments__form-field {
+    position: relative;
+}
+.comments__form-label {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    font: 700 1.125em 'Open Sans', 'Helvetica Neue', 'Arial', 'sans-serif';
+    cursor: text;
+    pointer-events: none;
+}
+
+.comments__form-label-text {
+    display: block;
+    transform: translateY(100%);
+    opacity: 0;
+    transition-duration: 0.5s;
+    transition-property: transform, opacity;
+}
+.comments__form-input:focus::-webkit-input-placeholder {
+    color: transparent;
+}
+.comments__form-input:focus + .comments__form-label .comments__form-label-text {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.comments__form-label::after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background: #777;
+    bottom: 1em;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.5s;
+}
+
+.comments__form-input:focus + .comments__form-label::after {
+    transform: scaleX(1);
+}
+
+.comments__form-input {
+    position: relative;
+    width: 100%;
+    padding: 1em 0;
+    border: 0;
+    outline: 0;
+    margin: 1em 0;
+    border-bottom: 3px solid #ddd;
+    vertical-align: bottom;
+    font: 400 1.125em 'Open Sans', 'Helvetica Neue', 'Arial', 'sans-serif';
+}
+
+.comments__form-textarea {
+    min-width: 100%;
+    max-width: 100%;
+    min-height: 168px;
+}
+
+.comments__form-submit {
+    padding: 0.5em;
+    margin: 1em 0;
+    background: none;
+    border: 3px solid #777;
+    font: 700 1em 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    opacity: 0.25;
+}
+
+.comments__form-submit:hover {
+    opacity: 1;
+}
+
+
+@media only screen and (min-width: 1020px) {
+
+    .comments { width: 970px; padding: 52px; }
+
+
+
+}
+
+
+/*comment show */
+a, a:hover {
+    transition: .25s color linear;
+}
+
+img {
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+}
+
+article time, article:hover time,
+.icon-rocknroll, .like-count {
+    transition: .25s opacity linear;
+}
+
+/*
+ |---------------------------------
+ |
+ | Project Start
+ |
+ |---------------------------------
+ */
+html {
+    font-size: 16px;
+}
+html body {
+    color: #444;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 1rem;
+    font-weight: 300;
+    line-height: 1.65;
+    margin: 50px 0;
+    padding: 0 25px;
+}
+
+html body .comments article {
+    position: relative;
+    border-bottom: solid 1px rgba(178, 179, 153, 0.125);
+    margin: 0 auto 50px auto;
+}
+html body .comments article:last-child {
+    border: none;
+}
+html body .comments article:hover time {
+    opacity: 1;
+}
+html body .comments article img {
+    position: absolute;
+    top: -10px;
+    left: -75px;
+    width: 50px;
+    height: 50px;
+    border-width: 0;
+    border-radius: 100%;
+}
+html body .comments article h4 {
+    display: inline-block;
+    font-weight: 400;
+    margin-bottom: 25px;
+}
+html body .comments article h4 a {
+    color: #404040;
+    text-transform: lowercase;
+    text-decoration: none;
+}
+html body .comments article h4 a:hover {
+    color: #BFBFA8;
+}
+html body .comments article time {
+    color: #545454;
+    margin-left: 1rem;
+    text-transform: uppercase;
+}
+html body .comments article .icon-rocknroll {
+    color: #545454;
+    font-size: .85rem;
+}
+html body .comments article .icon-rocknroll:hover {
+    opacity: .5;
+}
+html body .comments article time,
+html body .comments article .like-count,
+html body .comments article .icon-rocknroll {
+    font-size: .75rem;
+    opacity: 0;
+}
+html body .comments article time, html body .comments article .like-count {
+    font-weight: 300;
+}
+html body .comments article p {
+    margin-bottom: 50px;
+}
+html body .comments article p .reply {
+    color: #BFBFA8;
+    cursor: pointer;
+}
+html body .comments article .active {
+    opacity: 1;
+}
+
+.like-data {
+    float: right;
+}
+
+.icon-rocknroll {
+    background: none;
+    border: 0;
+    outline: none;
+    cursor: pointer;
+    margin: 0 .125rem 0 0;
+    padding: 0;
+}
+
+.comments article:hover .icon-rocknroll,
+.comments article:hover .like-count {
+    opacity: 1;
+}
+
+@media (max-width: 650px) {
+    .comments {
+        width: 100%;
+        padding: 0 1rem;
+    }
+
+    .comments article {
+        width: 90%;
+    }
+
+    .comments article #profile-photo {
+        position: relative;
+        left: -1rem;
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    .comments article h4 {
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    .comments article h4 time {
+        display: block;
+        margin-left: 0 !important;
+        opacity: .5 !important;
+    }
+}
